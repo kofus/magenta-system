@@ -4,13 +4,10 @@
     
     "autoload": {
         "psr-0": {
-            "Kofus\\Archive\\": "src/Kofus/Archive/",
             "Kofus\\System\\": "src/Kofus/System/",
             "Kofus\\User\\": "src/Kofus/User/",
-            "Kofus\\WebService\\": "src/Kofus/WebService/",
-            "Kofus\\Log\\": "src/Kofus/Log/"
         },
-        "classmap" : ["Kofus/Archive/Module.php", "Kofus/System/Module.php", "Kofus/User/Module.php", "Kofus/WebService/Module.php", "Kofus/Log/Module.php"]
+        "classmap" : ["Kofus/System/Module.php", "Kofus/User/Module.php"]
     }
 }
 
