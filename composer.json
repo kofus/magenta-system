@@ -5,7 +5,7 @@
     "autoload": {
         "psr-0": {
             "Kofus\\System\\": "src/Kofus/System/",
-            "Kofus\\User\\": "src/Kofus/User/",
+            "Kofus\\User\\": "src/Kofus/User/"
         },
         "classmap" : ["Kofus/System/Module.php", "Kofus/User/Module.php"]
     }
