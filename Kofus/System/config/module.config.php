@@ -21,6 +21,7 @@ return array(
             'Kofus\System\Controller\TagVocabulary' => 'Kofus\System\Controller\TagVocabularyController',
             'Kofus\System\Controller\Autologout' => 'Kofus\System\Controller\AutologoutController',
             'Kofus\System\Controller\Translations' => 'Kofus\System\Controller\TranslationsController',
+            'Kofus\System\Controller\UriStack' => 'Kofus\System\Controller\UriStackController'
         )
     ),
     
@@ -42,6 +43,7 @@ return array(
             'Kofus\System\Controller\Console' => 'Console',
             'Kofus\System\Controller\Test' => 'System',
             'Kofus\System\Controller\Translations' => 'System',
+            'Kofus\System\Controller\UriStack' => 'Frontend'
         )
     ),
     
@@ -59,42 +61,15 @@ return array(
             'paginator' => 'Kofus\System\Controller\Plugin\PaginatorPlugin',
             'lucene' => 'Kofus\System\Controller\Plugin\LucenePlugin',
             'viewHelper' => 'Kofus\System\Controller\Plugin\ViewHelperPlugin',
-            'settings' => 'Kofus\System\Controller\Plugin\SettingsPlugin'
+            'settings' => 'Kofus\System\Controller\Plugin\SettingsPlugin',
+            'archive' => 'Kofus\System\Controller\Plugin\ArchivePlugin',
+            
         )
     ),
     
     'public_paths' => array(
         __DIR__ . '/../public'
     ),
-    
-    /*
-    'translator' => array(
-        'translation_file_patterns' => array(
-            array(
-                'type' => 'phpArray',
-                'base_dir' => __DIR__ . '/../language',
-                'pattern' => '%s.php'
-            )
-        ),
-        'loaderpluginmanager' => [
-            'factories' => [
-                'nodes' => function ($lpm) {
-                    $sm = $lpm->getServiceLocator();
-                    $loader = new \Kofus\System\I18n\Translator\Loader\Nodes($sm);
-                    return $loader;
-                }
-            ]
-        ],
-        'remote_translation' => [
-            [
-                'type' => 'nodes', 'text_domain' => 'node'
-            ],
-            [
-                'type' => 'nodes', 'text_domain' => 'default'
-            ],
-            
-        ]
-    ), */
     
     'doctrine' => array(
         'driver' => array(
@@ -202,8 +177,8 @@ return array(
             'duration' => 'Kofus\System\View\Helper\DurationHelper',
             'filter' => 'Kofus\System\View\Helper\FilterHelper',
             'searchResult' => 'Kofus\System\View\Helper\SearchResultHelper',
-            'formHtml' => 'Kofus\System\View\Helper\Form\HtmlHelper'
-                
+            'formHtml' => 'Kofus\System\View\Helper\Form\HtmlHelper',
+            'urlBack' => 'Kofus\System\View\Helper\UrlBackHelper'
             
         ),
     ),
@@ -252,6 +227,7 @@ return array(
             'KofusSettings' => 'Kofus\System\Service\SettingsService',
             'KofusFormBuilderService' => 'Kofus\System\Service\FormBuilderService',
             'KofusFormWizardService' => 'Kofus\System\Service\FormWizardService',
+            'KofusArchiveService' => 'Kofus\System\Service\ArchiveService',
             
             // Crons
             'KofusBatchService' => 'Kofus\System\Service\BatchService',

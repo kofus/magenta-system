@@ -165,7 +165,7 @@ class LayoutListener extends AbstractListenerAggregate implements ListenerAggreg
         
         // Compile
         $scssc = new \Leafo\ScssPhp\Compiler();
-        $s = $scssc->compile($content);
+        @ $s = $scssc->compile($content);
         
         file_put_contents($filename, $s);
         $headLink()->appendStylesheet('/cache/sass/' . $hash . '.css'); 

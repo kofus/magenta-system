@@ -98,12 +98,12 @@ class Module implements AutoloaderProviderInterface
             $config = array_merge_recursive($config, include $filename);
         
         if (! $this->isConsole()) {
-            $config['listeners'][] = 'KofusPublicFilesListener';
-            $config['listeners'][] = 'KofusNodeListener';
-            $config['listeners'][] = 'KofusLayoutListener';
+            //$config['listeners'][] = 'KofusPublicFilesListener';
+            //$config['listeners'][] = 'KofusNodeListener';
+            //$config['listeners'][] = 'KofusLayoutListener';
             //$config['listeners'][] = 'KofusI18nListener';
         } else {
-            $config['listeners'][] = 'KofusNodeListener';
+           // $config['listeners'][] = 'KofusNodeListener';
         }
         return $config;
     }

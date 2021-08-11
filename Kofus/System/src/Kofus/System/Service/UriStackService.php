@@ -1,5 +1,5 @@
 <?php
-namespace Kofus\Archive\Service;
+namespace Kofus\System\Service;
 
 use Zend\Session\Container;
 
