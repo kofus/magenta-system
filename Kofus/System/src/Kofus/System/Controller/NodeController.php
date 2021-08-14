@@ -106,7 +106,7 @@ class NodeController extends AbstractActionController
     		    // Save entity
     			$this->em()->persist($entity);
     			$this->em()->flush();
-    			$this->media()->clearCache($entity);
+    			//$this->media()->clearCache($entity);
     			
     			// Save translations
     			$translations = $this->getServiceLocator()->get('KofusTranslationService');
@@ -199,7 +199,7 @@ class NodeController extends AbstractActionController
                                     
             } else {
             	// Delete cache
-            	$this->media()->clearCache($entity);
+            	//$this->media()->clearCache($entity);
             	
                 // Delete translations
                 $this->translations()->deleteNodeTranslations($entity);
