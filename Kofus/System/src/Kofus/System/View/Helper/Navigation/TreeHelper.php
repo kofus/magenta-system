@@ -47,10 +47,12 @@ class TreeHelper extends AbstractHelper
     		$isCollapsed = ($level > $this->collapseLevel);
     		$hasChildren = (bool) count($children);
     		
-    		$html .= '<li';
+            $classes = array();
+            if ($page->get('li-class')) $classes[] = $page->get('li-class');
+            if ($page->get('enabled') === false) $classes[] = 'not-published';
+            $html .= '<li';
     		if ($isCollapsed) $html .= ' style="display: none"';
-    		if ($page->get('enabled') === false)
-    			$html .= ' class="not-published"';
+    	    if ($classes) $html .= ' class="' . implode(' ', $classes) . '"';
     		$html .= '>';
     		
     		$html .= '<span>';
