@@ -11,12 +11,8 @@ class UriStackController extends AbstractActionController
     public function goBackAction()
     {
   		$uri = $this->archive()->uriStack()->pop();
-  		if (md5($uri) == $this->params('namespace'))
+  		if (md5($uri) == $this->params('id'))
   			$uri = $this->archive()->uriStack()->pop();
-  		
   		return $this->redirect()->toUrl($uri);
     }
-
-    
-    
 }

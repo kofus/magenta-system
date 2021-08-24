@@ -50,24 +50,25 @@ class NodeSelect extends ZendSelect implements InputProviderInterface
         } else {
             $values = array($value);
         }
-          
-        foreach ($values as $value) {
-            if ($value && ! isset($options[$value])) {
-            	if ($this->getOption('node-type') == 'LANGUAGE') {
-            		$languages = self::$sm->get('KofusConfig')->get('nodes.available.LANGUAGE.values');
-            		$options[$value] = \Locale::getDisplayLanguage($value, \Locale::getDefault());
-            		
-            	} elseif ($this->getOption('node-type') == 'COUNTRY') {
-            		$countries = self::$sm->get('KofusConfig')->get('nodes.available.COUNTRY.values');
-            		$options[$value] = \Locale::getDisplayRegion('-' . $value, \Locale::getDefault());
-            		
-            	} elseif (self::$sm->get('KofusNodeService')->isNode($value)) {
-            	    $node = self::$sm->get('KofusNodeService')->getNode($value);
-            	    $options[$value] = (string) $node;
-            	} else {
-            		$options[$value] = $value;
-            	}
-            	
+
+        if ($values) {
+            foreach ($values as $value) {
+                if ($value && ! isset($options[$value])) {
+                	if ($this->getOption('node-type') == 'LANGUAGE') {
+                		$languages = self::$sm->get('KofusConfig')->get('nodes.available.LANGUAGE.values');
+                		$options[$value] = \Locale::getDisplayLanguage($value, \Locale::getDefault());
+                		
+                	} elseif ($this->getOption('node-type') == 'COUNTRY') {
+                		$countries = self::$sm->get('KofusConfig')->get('nodes.available.COUNTRY.values');
+                		$options[$value] = \Locale::getDisplayRegion('-' . $value, \Locale::getDefault());
+                		
+                	} elseif (self::$sm->get('KofusNodeService')->isNode($value)) {
+                	    $node = self::$sm->get('KofusNodeService')->getNode($value);
+                	    $options[$value] = (string) $node;
+                	} else {
+                		$options[$value] = $value;
+                	}
+                }
             }
         }
         $this->setValueOptions($options);
