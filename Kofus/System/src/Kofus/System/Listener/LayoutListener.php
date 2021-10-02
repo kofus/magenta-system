@@ -177,12 +177,13 @@ class LayoutListener extends AbstractListenerAggregate implements ListenerAggreg
         $result = $e->getResult();
          
         // ajax requests
+        /*
         if ($result instanceof \Zend\View\Model\JsonModel) {
         	$result->setTerminal(true);
         	 
         } elseif ($result instanceof \Zend\View\Model\ViewModel) {
         	$result->setTerminal($e->getRequest()->isXmlHttpRequest());
-        }
+        } */
         
         if ($result && $result->terminate()) return;
          
