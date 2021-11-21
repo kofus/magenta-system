@@ -69,7 +69,9 @@ class LinkService extends AbstractService
         
         $_node = $node;
         while ($_node) {
-            $segments[] = $t->translateNode($_node, 'getUriSegment', array(), $locale);
+            $translation = $t->translateNode($_node, 'getUriSegment', array(), $locale);
+            if (! $translation) $translation = $_node->getUriSegment();
+            $segments[] = $translation;
         	$_node = $_node->getParent();
         }
         $segments = array_reverse($segments);
@@ -81,7 +83,7 @@ class LinkService extends AbstractService
     
     public function rebuildLinks(NodeInterface $node)
     {
-        if (! $node instanceof LinkedNodeInterface)
+        if (! $node || ! $node instanceof LinkedNodeInterface)
             return;
         
         $serviceNodes = $this->getServiceLocator()->get('KofusNodeService');
