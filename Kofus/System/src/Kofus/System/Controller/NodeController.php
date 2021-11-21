@@ -64,6 +64,7 @@ class NodeController extends AbstractActionController
         
         return new ViewModel(array(
             'form' => $form->prepare(), 
+            'nodeType' => $nodeType,
             'nodeTypeConfig' => $nodeTypeConfig,
             'formTemplate' => 'kofus/system/node/form/panes.phtml'
         ));

@@ -11,7 +11,19 @@
 		  <div class="list-group">
             <a href="<?php echo $this->urlBack() ?>" class="list-group-item">
 		  		<?php echo $this->translate('Close') ?>
-		      </a>
+		    </a>
+		    <?php $navArray = $this->config()->get('nodes.available.' . $this->nodeType . '.navigation.add') ?>
+		    <?php if ($navArray) : ?>
+		    	<?php 
+                    $nav = new \Zend\Navigation\Navigation($navArray);
+                    foreach ($nav as $page) {
+                        $page->set('class', 'list-group-item');
+                        echo '<a href="'.$page->getHref().'" class="list-group-item">';
+                        echo $this->escapeHtml($page->getLabel());
+                        echo '</a>';
+                    }
+      	        ?>
+		    <?php endif ?>
 		  </div>
     </div>
 </div>
