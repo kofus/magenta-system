@@ -48,7 +48,7 @@ class TranslateNodeHelper extends AbstractHelper implements ServiceLocatorAwareI
     public function __call($name, $arguments)
     {
         $value = $this->getTranslationService()->translateNode($this->node, $name, $arguments, $this->locale);
-        if (! $value && isset($this->options['fallback'])) {
+        if (! $value && (! array_key_exists('fallback', $this->options) || $this->options['fallback'])) {
             $locale = $this->getServiceLocator()->get('KofusConfig')->get('locales.default', 'de_DE');
             $value = $this->getTranslationService()->translateNode($this->node, $name, $arguments, $locale);
         }
