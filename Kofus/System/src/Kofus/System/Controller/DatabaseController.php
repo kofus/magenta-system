@@ -34,17 +34,9 @@ class DatabaseController extends AbstractActionController
         $filename = $dbService->createFilename();
         $dbService->save($path . $filename);
         
-        $response = new \Zend\Http\Response\Stream();
-        $response->setStream(fopen($path . $filename, 'r'));
-        $response->setStatusCode(200);
+        print $filename; 
+        die();
         
-        $headers = new \Zend\Http\Headers();
-        $headers->addHeaderLine('Content-Type', 'application/sql; charset=utf-8')
-            ->addHeaderLine('Content-Disposition', 'attachment; filename="' . $filename . '"')
-            ->addHeaderLine('Content-Length', filesize($path . $filename));
-        
-        $response->setHeaders($headers);
-        return $response;        
         
     }
     
