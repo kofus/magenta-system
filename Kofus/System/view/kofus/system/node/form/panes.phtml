@@ -12,8 +12,9 @@
         <div class="panel panel-default">
             <?php if ($fieldset->getLabel()) : ?>
                 <div class="panel-heading">
+                	<h4 class="panel-title">
                     <?php echo $this->escapeHtml($this->translate($fieldset->getLabel())) ?>
-                    <?php if ($fieldsetLocale != $this->config()->get('locales.default')) echo '[' . substr($fieldsetLocale, 0, 2) . ']' ?>
+                    <?php if ($fieldsetLocale != $this->config()->get('locales.default')) echo '[' . substr($fieldsetLocale, 0, 2) . ']' ?></h4>
                 </div>
             <?php endif ?>
 		     <div class="panel-body">
