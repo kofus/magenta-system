@@ -13,7 +13,7 @@
             <?php if ($fieldset->getLabel()) : ?>
                 <div class="panel-heading">
                     <?php echo $this->escapeHtml($this->translate($fieldset->getLabel())) ?>
-                    <?php if ($fieldsetLocale != 'de_DE') echo '[' . substr($fieldsetLocale, 0, 2) . ']' ?>
+                    <?php if ($fieldsetLocale != $this->config()->get('locales.default')) echo '[' . substr($fieldsetLocale, 0, 2) . ']' ?>
                 </div>
             <?php endif ?>
 		     <div class="panel-body">
